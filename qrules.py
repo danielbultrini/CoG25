@@ -9,8 +9,6 @@ def liveliness(nhood):
     a = v[0][0][0]+v[0][1][0]+v[0][2][0]+v[1][0][0]+v[1][2][0]+v[2][0][0]+v[2][1][0]+v[2][2][0]
     return np.abs(a)
 
-
-
 def SQGOL(nhood):
     a = liveliness(nhood)
     value =  nhood[1][1]
@@ -73,7 +71,6 @@ def find_closest_pure_state(density_matrix):
     # Construct the density matrix for this pure state: |ψ⟩⟨ψ|
     # Reshape the vector to be a column vector for the outer product
     column_vector = closest_pure_state_vector.reshape(2, 1)
-    closest_pure_state_density_matrix = column_vector @ column_vector.conj().T
 
     return closest_pure_state_vector
 
@@ -86,6 +83,7 @@ def init_quantum(nhood):
     for qubit,state in enumerate(v):
         qc.initialize(state,qubit)
     qc.h(qr[4])
+    
     qc.cy(qr[0],qr[4])
     qc.crz(np.pi/8,qr[1],qr[4])
     qc.cx(qr[3],qr[4])
