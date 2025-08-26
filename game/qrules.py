@@ -82,7 +82,7 @@ def init_quantum(nhood):
     v = np.array(v)[0]
     for qubit,state in enumerate(v):
         qc.initialize(state,qubit)
-    qc.h(qr[4])
+    qc.h(qr)
     
     qc.cy(qr[0],qr[4])
     qc.crz(np.pi/8,qr[1],qr[4])
@@ -138,3 +138,23 @@ def DSQGOL(nhood):
         elif (a > 3.5):
             value=init_quantum(nhood)
     return value
+
+
+def cloning_machine(circuit, qreg, qubits=[1,2,3], naam = 'clone'):
+    '''
+    tracing out 1,2 or 0,2 will return the one of the clones
+    qubits 1,2 must be initialized as 0'''
+    R_1,R_2,R_3 = 2*0.553574, 2*0.364864, 2*0.231824
+    #State preparation
+    circuit.ry(R_1,qreg[qubits[1]])
+    circuit.cx(qreg[qubits[1]],qreg[qubits[2]])
+    circuit.ry(R_2,qreg[qubits[2]])
+    circuit.cx(qreg[qubits[2]],qreg[qubits[1]])
+    circuit.ry(R_3,qreg[qubits[1]])
+
+    #Cloning machine
+    circuit.cx(qreg[qubits[0]],qreg[qubits[2]])
+    circuit.cx(qreg[qubits[0]],qreg[qubits[1]])
+    circuit.cx(qreg[qubits[2]],qreg[qubits[0]])
+    circuit.cx(qreg[qubits[1]],qreg[qubits[0]])
+    ## Remember to attach it to a state you want to clone! 
