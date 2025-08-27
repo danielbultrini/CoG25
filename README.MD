@@ -11,3 +11,5 @@ To learn how to use qiskit you might want to look at the tutorials/lessons on th
 
 
 thanks goes to Enrique de la Torre and Xiang (@ttosouth) for having worked on this with me many years ago. This version is updated for IEE CoG
+
+Please ask any questions in the issues.
