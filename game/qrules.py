@@ -76,6 +76,8 @@ def find_closest_pure_state(density_matrix):
 
 
 def init_quantum(nhood):
+    # Nhood is just the state of the neighbourhood or the kernel
+    ## THIS IS WHAT YOU MIGHT WANT TO EDIT :) ####
     v=nhood
     qr = QuantumRegister(9,'qr')
     qc = QuantumCircuit(qr,name='conway')
@@ -89,7 +91,7 @@ def init_quantum(nhood):
     job = Aer.get_backend('statevector_simulator').run(qc)
     results = job.result().get_statevector()
     value = partial_trace(results,[0,1,2,3,5,6,7,8])
-    value = find_closest_pure_state(value.data)
+    value = find_closest_pure_state(value.data) #make sure vlaue is a normalized complex vector of length 2.
     return value
 
 def DSQGOL(nhood):
