@@ -82,15 +82,10 @@ def init_quantum(nhood):
     v = np.array(v)[0]
     for qubit,state in enumerate(v):
         qc.initialize(state,qubit)
-    qc.h(qr)
+    for q in [0,1,2,3,5,6,7,8]:
+        qc.crz(np.pi/(q+1),q,4)
+        qc.crx(np.pi/(q+1),q,4)
     
-    qc.cy(qr[0],qr[4])
-    qc.crz(np.pi/8,qr[1],qr[4])
-    qc.cx(qr[3],qr[4])
-    qc.crz(-np.pi/8,qr[5],qr[4])
-    qc.cry(np.pi/8,qr[7],qr[4])
-    qc.h(qr[4])
-
     job = Aer.get_backend('statevector_simulator').run(qc)
     results = job.result().get_statevector()
     value = partial_trace(results,[0,1,2,3,5,6,7,8])
