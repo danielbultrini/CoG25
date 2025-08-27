@@ -5,4 +5,6 @@ pip install qiskit
 pip install qiskit-aer
 pip install pygame
 ```
-tutorial adapted form https://github.com/MonitSharma/Learn-Quantum-Computing-with-Qiskit 
+You should change and play around with the code in `qrules.py`. 
+
+To learn how to use qiskit you might want to look at the tutorials/lessons on this page: https://quantum.cloud.ibm.com/learning/en
