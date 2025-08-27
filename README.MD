@@ -5,6 +5,6 @@ pip install qiskit
 pip install qiskit-aer
 pip install pygame
 ```
-You should change and play around with the code in `qrules.py`. 
+You should change and play around with the code in `qrules.py`, specifically the `init_quantum` function. You can use more or less qubits here, but you must trace out all qubits but one or do something else that returns a valid single qubit statevector as an output (a normalizecd complex vector/list of length two).
 
 To learn how to use qiskit you might want to look at the tutorials/lessons on this page: https://quantum.cloud.ibm.com/learning/en
