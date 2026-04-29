@@ -1,0 +1,18 @@
+[project]
+name = "cog25"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "ipykernel>=7.2.0",
+    "matplotlib>=3.10.9",
+    "nbformat>=5.10.4",
+    "networkx>=3.6.1",
+    "numpy>=2.4.4",
+    "plotly>=6.7.0",
+    "pygame>=2.6.1",
+    "pylatexenc>=2.10",
+    "qiskit>=2.4.1",
+    "qiskit-aer>=0.17.2",
+]
